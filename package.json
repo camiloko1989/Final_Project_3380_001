@@ -1,0 +1,26 @@
+{
+  "name": "js_final_project",
+  "version": "1.0.0",
+  "description": "Shelter JS application to practice topics from CSIS-3600",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camiloko1989/Final_Project_3380_001.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "NodeJS",
+    "Express",
+    "React",
+    "Mongo"
+  ],
+  "author": "Group 1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camiloko1989/Final_Project_3380_001/issues"
+  },
+  "homepage": "https://github.com/camiloko1989/Final_Project_3380_001#readme"
+}
