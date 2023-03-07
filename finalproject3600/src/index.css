@@ -21,12 +21,11 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-h1{
-  font-size: 24px;
-  font-weight: 600; 
+.main-title{
+  font-size: 62px;
+  line-height: 72px; 
+  margin: 0 0 24px; 
   text-align: center; 
-  color: #323232; 
-  font-family: Roboto, sans-serif; 
-  margin: 0 0 16px 0;
-  padding: 50px;
+  text-transform: uppercase;
+  padding: 20px;
 }

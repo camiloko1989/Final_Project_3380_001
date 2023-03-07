@@ -6,7 +6,7 @@ function Shelters() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&facet=facility&facet=category&facet=meals&facet=pets&facet=carts&facet=geo_local_area');
+      const response = await fetch('https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&rows=18&facet=facility&facet=category&facet=meals&facet=pets&facet=geo_local_area');
       const json = await response.json();
       setData(json.records);
     }
@@ -24,7 +24,9 @@ function Shelters() {
           <p className="card-text">Phone: {item.fields.phone}</p>
           <p className="card-text">Meals: {item.fields.meals}</p>
           <p className="card-text">Pets allowed: {item.fields.pets}</p>
+          <p className="card-text">Location area: {item.fields.geo_local_area}</p>
         </div>
+        <button type="button" className="btn btn-secondary">Add Comment</button>
       </div>
     ))}
   </div>
@@ -46,14 +48,13 @@ function Menu() {
 
 function Title() {
   return (
-    <h1>Shelters in BC</h1>
+    <h1 className="main-title">Shelters in British Columbia</h1>
   );
 }
 
 function App() {
   return (
     <div>
-      <Menu />
       <Title />
       <Shelters />
        
