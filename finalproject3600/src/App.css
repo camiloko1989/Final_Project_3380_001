@@ -23,10 +23,37 @@
   color: #61dafb;
 }
 
+.card{
+  border:rgba(2, 30, 78, 0.729) 2px solid;
+}
+
 .card-title{
   background-color: rgba(43, 118, 249, 0.729);
   padding: .5em;
 }
+
+.shelter{
+  width: 90%;
+}
+
+.main-information{
+  width: 80%;
+  border: 5px solid red;
+}
+
+.shelter-info{
+  display: inline-flex;
+}
+
+.logo {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.content-shelter {
+  vertical-align: middle;
+}
+
 
 @keyframes App-logo-spin {
   from {
