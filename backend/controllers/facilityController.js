@@ -11,6 +11,18 @@ const getFacility = asyncHandler(async (req, res) => {
   res.status(200).json(facility);
 });
 
+// @desc    Get by facility id
+// @route   GET /api/facility/:id
+// @access  Public
+const getFacilityId = asyncHandler(async (req, res) => {
+  const facility = await Facility.findById(req.params.id);
+  if (!facility) {
+    res.status(400);
+    throw new Error("Facility not found");
+  }
+  res.status(200).json(facility);
+});
+
 // @desc    Set facility
 // @route   POST /api/facility
 // @access  Public
@@ -25,30 +37,55 @@ const setFacility = asyncHandler(async (req, res) => {
 
   const facility = await Facility.create({
     facility: req.body.facility,
+    category: req.body.category,
+    phone: req.body.phone,
+    meals: req.body.meals,
+    pets: req.body.pets,
+    carts: req.body.carts,
   });
   res.status(200).json(facility);
 });
 
-// @desc    Update facility (WIP)
+// @desc    Update facility
 // @route   PUT /api/facility/:id
-// @access  Private
-
-// @desc    Delete facility (WIP)
-// @route   DELETE /api/facility/:id
-// @access  Private
-const deleteFacility = asyncHandler(async (req, res) => {
+// @access  Public
+const updateFacility = asyncHandler(async (req, res) => {
   const facility = await Facility.findById(req.params.id);
   if (!facility) {
     res.status(400);
     throw new Error("Facility not found");
   }
+  // Authentication TBC
+  console.log(req.body);
+  const updatedFacility = await Facility.findByIdAndUpdate(
+    req.params.id,
+    { $set: { ...req.body, updatedAt: new Date() } },
+    // req.body,
+    {
+      new: true, // return the modified document
+      upsert: true, // create new document if none matches
+    }
+  );
+  res.status(200).json(updatedFacility);
+});
 
-  await facility.remove();
-  res.status(200).json({ id: req.params.id });
+// @desc    Delete facility (WIP)
+// @route   DELETE /api/facility/:id
+// @access  Private (TBC)
+const deleteFacility = asyncHandler(async (req, res) => {
+  const facility = await Facility.findByIdAndDelete(req.params.id);
+  if (!facility) {
+    res.status(400);
+    throw new Error("Facility not found");
+  }
+
+  res.status(200).json({ DeletedFacilityId: req.params.id });
 });
 
 module.exports = {
   getFacility,
+  getFacilityId,
   setFacility,
+  updateFacility,
   deleteFacility,
 };

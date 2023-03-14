@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const commentSchema = mongoose.Schema(
   {
-    shelter: {
+    facility: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "ShelterId",
+      ref: "FacilityId",
     },
     user: {
       type: String,
