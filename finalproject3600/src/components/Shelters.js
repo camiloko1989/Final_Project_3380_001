@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import "../App.css";
 
 function Shelters() {
   const [data, setData] = useState([]);
@@ -21,11 +22,16 @@ function Shelters() {
   return (
     <div className="container">
       {data.map((item) => (
-        <div key={item.recordid} className="card" style={{ width: "25rem" }}>
-          <div className="card">
-            <div className="card-header">{item.fields.geo_local_area}</div>
+        <div className="shelter-card" key={item.recordid} style={{ width: "25rem" }}>
+          <div className="card border border-5 rounded-start">
+            <div className="card-header card-title">Area: {item.fields.geo_local_area}</div>
             <div className="card-body">
-              <h5 className="card-title">{item.fields.facility}</h5>
+              <h5 className="shelter-name-logo">
+                <div className="logo">
+                  <img src="/images/home-heart.png" alt="Logo" width={25} height={25}/>
+                </div >
+                {item.fields.facility}
+              </h5>
               <p className="card-text">Phone: {item.fields.phone}</p>
               <p className="card-text">Meals : {item.fields.meals}</p>
               <p className="card-text">Pets allowed? : {item.fields.pets}</p>

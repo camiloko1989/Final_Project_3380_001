@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import GoogleMapReact from 'google-map-react'; //using google to generate maps
 
 
 
@@ -25,8 +24,8 @@ function Details() {
     <div className="container">
       {shelter && (
         <div className="shelter">
-          <h2 className="main-title">{shelter.fields.facility}</h2>
-          <div className="main-information">
+          <h2 className="header">{shelter.fields.facility}</h2>
+          <div className="main-information border border-5">
           <div className="shelter-info">
               <div className="logo">
                 <img src="/images/category.png" alt="Logo" width={25} height={25}/>
