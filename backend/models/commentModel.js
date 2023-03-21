@@ -5,7 +5,6 @@ const commentSchema = mongoose.Schema(
     shelterId: {
       type: String,
       required: true,
-      //ref: "ShelterId",
     },
     user: {
       type: String,

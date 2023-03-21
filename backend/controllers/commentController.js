@@ -1,31 +1,23 @@
 const asyncHandler = require("express-async-handler");
 const Facility = require("../models/facilityModel");
 const Comment = require("../models/commentModel");
-const express = require('express');
+
 
 
 const getComment= asyncHandler(async (req, res) => {
-  //const shelterId=req.params.shelterId
   const comment = await Comment.find();
   res.status(200).json(comment);
 });
 
 const getComments = asyncHandler(async (req, res) => {
   const shelterId=req.params.id
-  //Comment.find(req.params.shelterId)
-  //console.log(req.params)
   const comment = await Comment.find({shelterId:shelterId})
-
-  //.then((comment) => res.json(comment))
   .catch((err) => res.status(400).json('Error: ' + err));
- // const comment = await Comment.find();
- //console.log(comment)
+ 
   res.status(201).json(comment);
 });
 
-// @desc    Set facility
-// @route   POST /api/facility
-// @access  Public
+
 const setComment = asyncHandler(async (req, res) => {
 
   /*   if (!req.body.comment) {
@@ -39,14 +31,6 @@ const setComment = asyncHandler(async (req, res) => {
     shelterId=req.body.shelterId,
     user=req.body.user,
     comment=req.body.comment
-    const data=new Comment({
-    shelterId,user,comment
-
-    })
-
-    console.log(data);
-   
-    
     const newComment = await Comment.create({
     shelterId,user,comment
       
@@ -66,5 +50,5 @@ module.exports = {
   getComment,
   setComment,
   getComments
- // deleteFacility,
+
 };

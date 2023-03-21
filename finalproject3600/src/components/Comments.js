@@ -10,7 +10,7 @@ function Comments(props){
         const id=props.id;
         const [user, setUser] = useState("");
         const [comment, setComment] = useState("");
-        const [commentSaved, setCommmetSaved] = useState([]);
+        const [commentSaved, setCommmentSaved] = useState([]);
         
         const  handleSubmit=  async (event)=>{
           event.preventDefault();
@@ -36,7 +36,7 @@ function Comments(props){
         async function getData(){
           const data = await fetch(url) 
             .then((data) => data.json()) 
-              setCommmetSaved(data) 
+              setCommmentSaved(data) 
             .catch((error) => console.error(error))   
         }
        getData();

@@ -1,4 +1,5 @@
 # root path
 package-lock.json
 node_modules
+node_modules\
 .vscode
