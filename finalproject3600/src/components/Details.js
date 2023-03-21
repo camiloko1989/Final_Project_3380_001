@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
+import GoogleMapReact from 'google-map-react'; //using google to generate maps
+import Comments from './Comments'
+
 
 
 function Details() {
   const { id } = useParams();  //uses the id that comes from the Shelter
   const [data, setData] = useState([]);
+  const [comments, setComment] = useState([]);
+  const [test, setest] = useState([]);
+  
+
+  
 
   //fetch the API again
   useEffect(() => {
@@ -17,9 +25,11 @@ function Details() {
 
     fetchData();
   }, []);
+  
 
   const shelter = data.find((item) => item.recordid === id); //looks for the element in the JSON that is equal to the id that comes in the URL
-
+  
+  
   return (   //returns JSX with info from the Shelter that matches above
     <div className="container">
       {shelter && (
@@ -72,13 +82,24 @@ function Details() {
               </div>
               <div className="content-shelter">
                 <p>Location Area: {shelter.fields.geo_local_area}</p>
-              </div>
+              </div> 
             </div>
           </div>
-        </div>
+         
+        </div>  
+          
+        
       )}
+       
+     
+      <Comments
+      
+      id ={id}  /> 
+      
     </div>
+    
   );
+  
 }
 
-export default Details;
+export default Details; 
