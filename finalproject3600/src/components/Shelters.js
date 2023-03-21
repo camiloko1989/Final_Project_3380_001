@@ -10,6 +10,7 @@ function Shelters() {
       const response = await fetch(
         "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&rows=61&facet=facility&facet=category&facet=meals&facet=pets&facet=carts&facet=geo_local_area"
       );
+      //const response = await fetch('http://127.0.0.1:5000/api/facility');
       const json = await response.json();
       setData(json.records);
     }
