@@ -1,8 +1,9 @@
+
+// use err handler instead of try catches for async
+
 const asyncHandler = require("express-async-handler");
 const Facility = require("../models/facilityModel");
 const Comment = require("../models/commentModel");
-
-
 
 const getComment= asyncHandler(async (req, res) => {
   const comment = await Comment.find();
@@ -50,5 +51,4 @@ module.exports = {
   getComment,
   setComment,
   getComments
-
 };
