@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+
+import GoogleMapReact from 'google-map-react'; //using google to generate maps
+import Comments from './Comments'
+
+
 
 function Details() {
-  const { id } = useParams(); //uses the id that comes from the Shelter
-  const [shelter, setShelter] = useState([]);
+  const { id } = useParams();  //uses the id that comes from the Shelter
+  const [data, setData] = useState([]);
+  const [comments, setComment] = useState([]);
+  const [test, setest] = useState([]);
+  
+
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -118,10 +128,21 @@ function Details() {
               </div>
             </div>
           </div>
-        </div>
+         
+        </div>  
+          
+        
       )}
+       
+     
+      <Comments
+      
+      id ={id}  /> 
+      
     </div>
+    
   );
+  
 }
 
-export default Details;
+export default Details; 

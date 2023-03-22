@@ -13,6 +13,7 @@ function Shelters() {
       const response = await fetch(
         "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations"
       );
+      //const response = await fetch('http://127.0.0.1:5000/api/facility');
       const json = await response.json();
       setShelter(json.records);
     }
