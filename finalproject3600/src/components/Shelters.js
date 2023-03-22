@@ -11,7 +11,7 @@ function Shelters() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&rows=61&facet=facility&facet=category&facet=meals&facet=pets&facet=carts&facet=geo_local_area"
+        "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations"
       );
       const json = await response.json();
       setShelter(json.records);
@@ -57,7 +57,7 @@ function Shelters() {
                 <p className="card-text">Phone: {item.fields.phone}</p>
                 <p className="card-text">Meals : {item.fields.meals}</p>
                 <p className="card-text">Pets allowed? : {item.fields.pets}</p>
-                <NavLink to={`/details/${item.recordid}`}>
+                <NavLink to={`/Details/${item.recordid}`}>
                   <button type="button" className="btn btn-primary btn-lg">
                     View Details
                   </button>

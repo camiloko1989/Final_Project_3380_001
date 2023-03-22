@@ -1,77 +1,120 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
-
-
+import { useParams } from "react-router-dom";
 
 function Details() {
-  const { id } = useParams();  //uses the id that comes from the Shelter
-  const [data, setData] = useState([]);
+  const { id } = useParams(); //uses the id that comes from the Shelter
+  const [shelter, setShelter] = useState([]);
 
-  //fetch the API again
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&rows=61&facet=facility&facet=category&facet=meals&facet=pets&facet=carts&facet=geo_local_area');
+      const response = await fetch(
+        //it uses the id to fetch a filtered API and brings only info from the shelter
+        `https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&refine.recordid=${id}`
+      );
       const json = await response.json();
-      setData(json.records);
+      console.log(json);
+      setShelter(json);
+      console.log("records: " + json.records[0].fields.facility); //it shows that json.records is an array
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
-  const shelter = data.find((item) => item.recordid === id); //looks for the element in the JSON that is equal to the id that comes in the URL
+  
 
-  return (   //returns JSX with info from the Shelter that matches above
+  return (
+    //returns JSX with info from the Shelter that matches above
     <div className="container">
-      {shelter && (
-        <div className="shelter">
-          <h2 className="header">{shelter.fields.facility}</h2>
-          <div className="main-information border border-5">
-          <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/category.png" alt="Logo" width={25} height={25}/>
+      {shelter.records && (
+        <div className="container">
+          <div className="shelter">
+            <h2 className="header">{shelter.records[0].fields.facility}</h2>
+            <div className="main-information border border-5">
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/category.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>Category: {shelter.records[0].fields.category}</p>
+                </div>
               </div>
-              <div className="content-shelter">
-                <p>Category: {shelter.fields.category}</p>
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/phone.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>Phone: {shelter.records[0].fields.phone}</p>
+                </div>
               </div>
-            </div>
-            <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/phone.png" alt="Logo" width={25} height={25}/>
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/coffee.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>Meals: {shelter.records[0].fields.meals}</p>
+                </div>
               </div>
-              <div className="content-shelter">
-                <p>Phone: {shelter.fields.phone}</p>
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/paw-filled.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>Pets allowed? {shelter.records[0].fields.pets}</p>
+                </div>
               </div>
-            </div>
-            <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/coffee.png" alt="Logo" width={25} height={25}/>
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/shopping-cart.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>Carts allowed? {shelter.records[0].fields.carts}</p>
+                </div>
               </div>
-              <div className="content-shelter">
-                <p>Meals: {shelter.fields.meals}</p>
-              </div>
-            </div>
-            <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/paw-filled.png" alt="Logo" width={25} height={25}/>
-              </div>
-              <div className="content-shelter">
-                <p>Pets allowed? {shelter.fields.pets}</p>
-              </div>
-            </div>
-            <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/shopping-cart.png" alt="Logo" width={25} height={25}/>
-              </div>
-              <div className="content-shelter">
-                <p>Carts allowed? {shelter.fields.carts}</p>
-              </div>
-            </div>
-            <div className="shelter-info">
-              <div className="logo">
-                <img src="/images/current-location.png" alt="Logo" width={25} height={25}/>
-              </div>
-              <div className="content-shelter">
-                <p>Location Area: {shelter.fields.geo_local_area}</p>
+              <div className="shelter-info">
+                <div className="logo">
+                  <img
+                    src="/images/current-location.png"
+                    alt="Logo"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+                <div className="content-shelter">
+                  <p>
+                    Location Area: {shelter.records[0].fields.geo_local_area}
+                  </p>
+                  <p>
+                    Coordinate1: {shelter.records[0].fields.geo_point_2d[0]}
+                  </p>
+                  <p>
+                    Coordinate2: {shelter.records[0].fields.geo_point_2d[1]}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
