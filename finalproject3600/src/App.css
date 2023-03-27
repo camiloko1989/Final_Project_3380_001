@@ -40,6 +40,13 @@ nav ul:first-child {
   margin: auto;
 }
 
+.container-details{
+  width: 95%;
+  display: block;
+  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
 
 .header {
   background-color: #2359a5;

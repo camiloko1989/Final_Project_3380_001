@@ -31,7 +31,7 @@ function Details() {
 
   return (
     //returns JSX with info from the Shelter that matches above
-    <div className="container-shelters">
+    <div className="container-details">
       {shelter.records && (
           <div className="shelter">
             <h2 className="header">{shelter.records[0].fields.facility}</h2>
