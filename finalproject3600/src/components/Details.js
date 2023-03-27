@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
-import GoogleMapReact from 'google-map-react'; //using google to generate maps
 import Comments from './Comments'
 
 
 
 function Details() {
   const { id } = useParams();  //uses the id that comes from the Shelter
-  const [data, setData] = useState([]);
-  const [comments, setComment] = useState([]);
+  const [shelter, setShelter] = useState([]);
   const [test, setest] = useState([]);
   
 
@@ -34,9 +31,8 @@ function Details() {
 
   return (
     //returns JSX with info from the Shelter that matches above
-    <div className="container">
+    <div className="container-shelters">
       {shelter.records && (
-        <div className="container">
           <div className="shelter">
             <h2 className="header">{shelter.records[0].fields.facility}</h2>
             <div className="main-information border border-5">
@@ -128,9 +124,7 @@ function Details() {
               </div>
             </div>
           </div>
-         
-        </div>  
-          
+    
         
       )}
        

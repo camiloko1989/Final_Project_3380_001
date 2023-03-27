@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import Commments  from '../Comments.css';
-import Details  from './Details.js';
+import  '../Comments.css';
 import axios from 'axios';
 //import { param } from "../../../backend/routes/commentRouter";
 
@@ -47,7 +46,7 @@ function Comments(props){
         return(
         
 
-        <div className="container"> 
+        <div className="container-comments"> 
           <div className="comment">
           {commentSaved.map((item) => (
           <div key={item._id} className="card-comment" >
