@@ -32,7 +32,7 @@ function Shelters() {
   return (
     <div>
       <ShelterFilter setFilter={setFilter} />
-      <div className="container">
+      <div className="container-shelters">
         {filteredData.map((item) => (
           <div
             className="shelter-card"
