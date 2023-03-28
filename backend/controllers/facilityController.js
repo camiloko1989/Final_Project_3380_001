@@ -42,6 +42,8 @@ const setFacility = asyncHandler(async (req, res) => {
     meals: req.body.meals,
     pets: req.body.pets,
     carts: req.body.carts,
+    geo_local_area: req.body.geo_local_area,
+    geo_point_2d: req.body.geo_point_2d,
   });
   res.status(200).json(facility);
 });
