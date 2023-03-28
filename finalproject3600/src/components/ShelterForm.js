@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 const API_URL = "/api/facility";
+// to add error handling
 
 // define options for 2 input fields
 const categories = [
