@@ -1,33 +1,51 @@
-import React, { useEffect } from 'react';
-import {shelter} from './Details'
-import L from 'leaflet';
+import React, { useState, useEffect } from "react";
+import L from "leaflet";
+import 'leaflet/dist/leaflet.css';
+import '../App.css'
 
-function Map() {
+function Map(props) { //brings the id from the Shelter
+  const [shelterMap, setShelterMap] = useState(null);
 
-  useEffect(() => {
-    // Get the coordinates
-    const lat = shelter.records[0].fields.geo_point_2d[0];
-    const lng = shelter.records[0].fields.geo_point_2d[1];
+  useEffect(() => {  //fetch the API with the ID 
+    async function fetchData() {
+      const response = await fetch(
+        `https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&refine.recordid=${props.idmap}`
+      );
+      const json = await response.json();
+      setShelterMap(json);
+    }
 
-    // Create the map
-    const mymap = L.map('mapid').setView([lat, lng], 13);
+    fetchData();
+  }, [props.idmap]);
 
-    // Add the tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(mymap);
+  const lat = shelterMap?.records?.[0]?.fields?.geo_point_2d?.[0]; //Sets coordinates
+  const lng = shelterMap?.records?.[0]?.fields?.geo_point_2d?.[1];
 
-    // Add a marker
-    L.marker([lat, lng]).addTo(mymap);
 
-    // Cleanup
-    return () => {
-      mymap.remove();
-    };
-  }, []);
+  useEffect(() => { //uses leaflet API to set a map with the coordinates
+    if (lat && lng) {
+      const mymap = L.map("mapid").setView([lat, lng], 15);
+      L.Icon.Default.imagePath = "/images/map-pin-filled.png";
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(mymap);
+
+      L.marker([lat, lng]).addTo(mymap);
+
+
+      return () => {
+        mymap.remove();
+      };
+    }
+  }, [lat, lng]);
 
   return (
-    <div style={{ height: '400px' }} id="mapid" />
+    <div className="container-maps border border-5">
+      {shelterMap?.records && lat && lng && (
+        <div style={{ height: "400px" }} id="mapid" />
+      )}
+    </div>
   );
 }
 

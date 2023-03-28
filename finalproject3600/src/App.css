@@ -44,7 +44,7 @@ nav ul:first-child {
   width: 95%;
   display: block;
   margin: auto;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  text-align: -webkit-center;
 }
 
 
@@ -155,6 +155,12 @@ nav ul:first-child {
   margin-right: 5px;
 }
 
+/*Maps*/
+.container-maps{
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
 
 /* Cards effect */
 @keyframes fade-in {
