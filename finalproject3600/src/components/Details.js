@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Comments from './Comments'
+import Map from "./Map";
+import 'leaflet/dist/leaflet.css';
 
 
 
 function Details() {
   const { id } = useParams();  //uses the id that comes from the Shelter
   const [shelter, setShelter] = useState([]);
-  const [test, setest] = useState([]);
   
 
   
@@ -19,9 +20,9 @@ function Details() {
         `https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&refine.recordid=${id}`
       );
       const json = await response.json();
-      console.log(json);
+      //console.log(json);
       setShelter(json);
-      console.log("records: " + json.records[0].fields.facility); //it shows that json.records is an array
+      //console.log("records: " + json.records[0].fields.facility); //it shows that json.records is an array
     }
 
     fetchData();
@@ -114,24 +115,23 @@ function Details() {
                   <p>
                     Location Area: {shelter.records[0].fields.geo_local_area}
                   </p>
-                  <p>
-                    Coordinate1: {shelter.records[0].fields.geo_point_2d[0]}
-                  </p>
-                  <p>
-                    Coordinate2: {shelter.records[0].fields.geo_point_2d[1]}
-                  </p>
                 </div>
               </div>
             </div>
           </div>
-    
+     
         
       )}
-       
-     
-      <Comments
+       <div>
+        <h1>Use the map to locate us!</h1>
+        <Map idmap={id}/> 
+      </div>
       
-      id ={id}  /> 
+      <div>
+        <h1>Leave us your comments: </h1>
+        <Comments id ={id}/> 
+      </div>
+      
       
     </div>
     
