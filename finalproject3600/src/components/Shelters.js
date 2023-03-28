@@ -27,10 +27,15 @@ function Shelters() {
       item.fields.geo_local_area.toLowerCase().includes(filter.toLowerCase()) ||
       item.fields.facility.toLowerCase().includes(filter.toLowerCase())
   );
-  
+
   //it return each card
   return (
-    <div>
+    <div className="shelter-card">
+      <NavLink to="/shelterform" className="link-info">
+        <button type="button" className="btn btn-primary">
+          Add Shetler
+        </button>
+      </NavLink>
       <ShelterFilter setFilter={setFilter} />
       <div className="container">
         {filteredData.map((item) => (
