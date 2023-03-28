@@ -166,3 +166,7 @@ nav ul:first-child {
   }
 }
 
+/* Shelter Form */
+.form-group {
+  margin-top: 1em;
+}

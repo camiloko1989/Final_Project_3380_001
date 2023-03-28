@@ -22,6 +22,11 @@ function NavBar() {
               About
             </NavLink>
           </li>
+          <li className="nav-item active">
+            <NavLink to="/shelterform" className="nav-link">
+              Add Shelter
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <hr />

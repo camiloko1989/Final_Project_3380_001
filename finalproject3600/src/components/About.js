@@ -4,18 +4,25 @@ import { Outlet, NavLink } from "react-router-dom";
 
 function About() {
   return (
-    <div className="card-text">
+    <div className="card-text shelter-card">
       <p>
         We are free information provider about homeless shelters, including
         facility, category, location, phone, meals, pets, etc.
       </p>
       <p>
         This website aims to help people with needs and volunteers to locate
-        correct information. And we invite you to help others by adding or
-        editing relevant information here.
+        correct information. Although we started with only Vancouver, we invite
+        you to help others by{" "}
+        <NavLink to="/shelterform" className="link-info">
+          adding
+        </NavLink>{" "}
+        or editing the information of other cities in BC here.
       </p>
       <p>
-        <NavLink to="/">Click here</NavLink> to start browsing.
+        <NavLink to="/" className="link-info">
+          Click here
+        </NavLink>{" "}
+        to start browsing.
       </p>
     </div>
   );
