@@ -4,7 +4,7 @@
 const asyncHandler = require("express-async-handler");
 const Facility = require("../models/facilityModel");
 const Comment = require("../models/commentModel");
-
+//agregar try/catch 
 const getComment= asyncHandler(async (req, res) => {
   const comment = await Comment.find();
   res.status(200).json(comment);
@@ -21,13 +21,13 @@ const getComments = asyncHandler(async (req, res) => {
 
 const setComment = asyncHandler(async (req, res) => {
 
-  /*   if (!req.body.comment) {
+    if (!req.body.comment) {
     // need to add back other fields after testing
     // res.status(400).json({ message: "Please add a text field" }); // bad req
     res.status(400);
     // express error handler
     throw new Error("Please enter your name");
-  }*/
+  }
     
     shelterId=req.body.shelterId,
     user=req.body.user,
