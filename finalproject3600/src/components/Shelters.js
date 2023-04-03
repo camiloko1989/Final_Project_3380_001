@@ -11,7 +11,7 @@ function Shelters() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations&q=&rows=61&facet=facility&facet=category&facet=meals&facet=pets&facet=carts&facet=geo_local_area"
+        "https://opendata.vancouver.ca/api/records/1.0/search/?dataset=homeless-shelter-locations"
       );
       //const response = await fetch('http://127.0.0.1:5000/api/facility');
       const json = await response.json();
@@ -27,12 +27,17 @@ function Shelters() {
       item.fields.geo_local_area.toLowerCase().includes(filter.toLowerCase()) ||
       item.fields.facility.toLowerCase().includes(filter.toLowerCase())
   );
-  
+
   //it return each card
   return (
-    <div>
+    <div className="shelter-card">
+      <NavLink to="/shelterform" className="link-info">
+        <button type="button" className="btn btn-primary">
+          Add Shetler
+        </button>
+      </NavLink>
       <ShelterFilter setFilter={setFilter} />
-      <div className="container">
+      <div className="container-shelters">
         {filteredData.map((item) => (
           <div
             className="shelter-card"
@@ -58,7 +63,7 @@ function Shelters() {
                 <p className="card-text">Phone: {item.fields.phone}</p>
                 <p className="card-text">Meals : {item.fields.meals}</p>
                 <p className="card-text">Pets allowed? : {item.fields.pets}</p>
-                <NavLink to={`/details/${item.recordid}`}>
+                <NavLink to={`/Details/${item.recordid}`}>
                   <button type="button" className="btn btn-primary btn-lg">
                     View Details
                   </button>

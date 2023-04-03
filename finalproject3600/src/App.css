@@ -1,3 +1,7 @@
+body{
+  background-color: #f2f2f2;
+}
+
 .App {
   text-align: center;
 }
@@ -8,49 +12,66 @@
   }
 }
 
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Nav Bar's CSS */
+nav {
+  margin-top: -1.2em;
 }
 
-.App-link {
-  color: #61dafb;
+nav ul li {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav ul:first-child {
+  margin-left: 1em;
 }
 
 /* Shelter's CSS */
-.container {
-  width: 95%;
-  max-width: 1100px;
-  margin: 1.1em auto;
+.container-shelters {
+  width: 100%;
+  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
+.container-shelter {
+  width: 100%;
+  margin: auto;
+}
+
+.container-details{
+  width: 95%;
+  display: block;
+  margin: auto;
+  text-align: -webkit-center;
+}
+
+
 .header {
-  background-color: #385a8a;
+  background-color: #2359a5;
+  text-shadow: 3px 2px 4px rgba(1, 1, 1, 0.5);
+  font-size: 3rem;
   padding: 40px 20px;
   text-align: center;
   color: white;
 }
 
+
 .title {
-  font-size: 36px;
+  font-size: 4ren;
   font-weight: 700;
   margin-bottom: 20px;
   
 }
 
+.header h2{
+  font-size: 4rem;
+  font-weight: 600;
+}
+
 .description {
-  font-size: 18px;
+  font-size: 2rem;
   font-weight: 400;
   color: white;
   max-width: 600px;
@@ -81,16 +102,20 @@
 }
 
 .title{
+  
   font-size: 4rem;
 }
 
+/*Details of a card*/
 .main-information{
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 20px;
 }
 
 .shelter-info{
+  font-size: 2rem;
+  font-weight: bold;
   display: flex;
 }
 
@@ -130,6 +155,12 @@
   margin-right: 5px;
 }
 
+/*Maps*/
+.container-maps{
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
 
 /* Cards effect */
 @keyframes fade-in {
@@ -141,3 +172,7 @@
   }
 }
 
+/* Shelter Form */
+.form-group {
+  margin-top: 1em;
+}

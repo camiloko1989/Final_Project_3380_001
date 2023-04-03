@@ -13,6 +13,7 @@ function ShelterFilter({ setFilter }) {
   };
 
   const resetFilter = () => {
+    setSearchText("");
     setFilter("");
   };
 
@@ -33,7 +34,7 @@ function ShelterFilter({ setFilter }) {
       <button className="btn btn-light" onClick={handleFilter}>
         Search
       </button>
-      <button className="btn btn-light" nClick={resetFilter}>
+      <button className="btn btn-light" onClick={resetFilter}>
         Reset
       </button>
     </div>
