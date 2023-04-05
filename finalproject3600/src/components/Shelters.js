@@ -41,7 +41,10 @@ function Shelters() {
             style={{ width: "25rem" }}
           >
             <div className="card border border-5 rounded-start">
-              <div className="card-header card-title">
+              <div
+                className="card-header card-title"
+                style={{ fontWeight: "bold" }}
+              >
                 Area: {item.geo_local_area}
               </div>
               <div className="card-body">
@@ -59,7 +62,7 @@ function Shelters() {
                 <p className="card-text">Phone: {item.phone}</p>
                 <p className="card-text">Meals : {item.meals}</p>
                 <p className="card-text">Pets allowed? : {item.pets}</p>
-                <NavLink to={`/Details/${item.recordid}`}>
+                <NavLink to={`/Details/${item._id}`}>
                   <button type="button" className="btn btn-primary btn-lg">
                     View Details
                   </button>
@@ -69,6 +72,7 @@ function Shelters() {
           </div>
         ))}
       </div>
+      <hr />
     </div>
   );
 }
