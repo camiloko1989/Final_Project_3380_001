@@ -26,6 +26,8 @@ function ShelterForm() {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [submitBtn, setSubmitBtn] = useState("Add Shelter");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [errorDiv, setErrorDiv] = useState(false);
 
   const handleCheck = (option) => {
     let tmp_support = support;
@@ -38,8 +40,29 @@ function ShelterForm() {
     console.log(tmp_support);
   };
 
+  const handlePhone = (tel) => {
+    if (tel.target.value.length <= 12) {
+      const tmp_tel = phoneFormat(tel.target.value);
+      setPhone(tmp_tel);
+    }
+  };
+
+  const phoneFormat = (phone) => {
+    const number = phone.trim().replace(/[^0-9]/g, "");
+    if (number.length < 4) return number;
+    if (number.length < 7) return number.replace(/(\d{3})(\d{1})/, "$1-$2");
+    if (number.length < 11)
+      return number.replace(/(\d{3})(\d{3})(\d{1})/, "$1-$2-$3");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (facilityName == "" || phone == "" || localArea == "") {
+      setErrorDiv(true);
+      setErrorMsg("Please fill out mandatory fields with (*). Thank you.");
+      return;
+    }
 
     const formData = {
       facility: facilityName,
@@ -51,13 +74,11 @@ function ShelterForm() {
       geo_local_area: localArea,
       geo_point_2d: { lon: parseFloat(lon), lat: parseFloat(lat) },
     };
-    try {
-      createFacility(formData);
-      resetForm();
-      setSubmitBtn("Success!");
-    } catch (error) {
-      setSubmitBtn("Error");
-    }
+
+    createFacility(formData);
+    resetForm();
+    setErrorDiv(false);
+    setSubmitBtn("Success!");
   };
 
   const createFacility = async (formData) => {
@@ -77,9 +98,15 @@ function ShelterForm() {
 
   return (
     <form className="shelter-card" onSubmit={handleSubmit}>
+      {errorDiv ? (
+        <div class="alert alert-danger" role="alert">
+          {errorMsg}
+        </div>
+      ) : null}
+
       {/* Shelter Name: Text */}
       <div className="form-group">
-        <label htmlFor="facilityName">Facility Name</label>
+        <label htmlFor="facilityName">Facility Name *</label>
         <input
           type="text"
           className="form-control"
@@ -93,7 +120,7 @@ function ShelterForm() {
 
       {/* Category: Dropdown Box */}
       <div className="form-group">
-        <label htmlFor="category">Category</label>
+        <label htmlFor="category">Category *</label>
         <select
           className="form-select"
           value={category}
@@ -109,14 +136,14 @@ function ShelterForm() {
 
       {/* Phone: Tel */}
       <div className="form-group">
-        <label htmlFor="phone">Phone</label>
+        <label htmlFor="phone">Phone *</label>
         <input
           type="tel"
           className="form-control"
           id="phone"
           placeholder="e.g. 234-567-8901"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={handlePhone}
         />
       </div>
 
@@ -140,7 +167,7 @@ function ShelterForm() {
 
       {/* Local Area: Text */}
       <div className="form-group">
-        <label htmlFor="area">Local Area</label>
+        <label htmlFor="area">Local Area *</label>
         <input
           type="text"
           className="form-control"
