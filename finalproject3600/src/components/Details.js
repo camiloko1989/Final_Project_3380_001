@@ -111,7 +111,6 @@ function Details() {
       </div>
 
       <div>
-        <h1>Leave us your comments: </h1>
         <Comments id={id} />
       </div>
     </div>
