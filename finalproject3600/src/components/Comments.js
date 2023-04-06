@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import  '../Comments.css';
 import axios from 'axios';
+//import Modal from "react-modal";
 
 
 
@@ -11,23 +12,31 @@ function Comments(props){
   const [user, setUser] = useState("");
   const [comment, setComment] = useState("");
   const [commentSaved, setCommmentSaved] = useState([]);
+  const [showForm, setShowForm] = useState(false);
   
 
   const errorMessage=handleInput(user, comment)
   function handleInput(user, comment){
  
   
-    if(!user){
-      return "Please enter your name and comment "
+    if(!user && !comment){
+      return "Please enter the following information: name and comment ";
     } 
-    if(!comment) {
-      return "Please enter your  comment" ;
-    } 
+    if (!user && comment !=""){
+    return " Please enter the followin information: name  ";
+    }
+    if (user!="" && !comment){
+    return " Please enter the following information: comment";
+    }
+
+    
+    
    
   }
   
   const  handleSubmit=  async (event)=>{
     event.preventDefault();
+    setShowForm(false); 
     handleInput(user, comment);
     const data={
       shelterId:id,
@@ -42,6 +51,8 @@ function Comments(props){
         setUser("")
         console.log("success")
         getData();
+        window.alert("¡Thanks for your comments!");
+
       });   
     }
 
@@ -61,33 +72,44 @@ function Comments(props){
     getData();
   
   }, []);
-  var date;
+
+  //https://mdbootstrap.com/docs/standard/extended/comments/
   return(
   
-        <div className="container-comments"> 
-          <div className="comment">
-            
-          {commentSaved.map((item) => (
-            <div key={item._id} className="card-comment" >
-            
-              <p className="name"> {item.user}</p>
-              <p className="date">{new Date(item.createdAt).toISOString().slice(0,10)}</p>
-              <p> {item.comment}</p>
-            </div>))}
-          </div>
+    <div className="container-comments"> 
+    <button className="button-form" onClick={() => setShowForm(true)}>Add a Comment</button>
+      {showForm && (
+
+      <form onSubmit={handleSubmit} className="comment-form">
+      
+      <p className="message"> <strong>{errorMessage}</strong></p> 
+        <input type="text" id="user" placeholder="Name"  value={user} onChange={(e) => setUser(e.target.value)}/>
+        <br/>
+        <br/>
+        <textarea id="comment"  placeholder="Message" value={comment} onChange={(e) => setComment(e.target.value)} />
         
-          <form onSubmit={handleSubmit} className="comment-form">
-          <h4>{errorMessage}</h4>
-       
-          <input type="text" id="user" placeholder="Name"  value={user} onChange={(e) => setUser(e.target.value)}/>
-          <label></label>
-          <textarea id="comment"  placeholder="Message" value={comment} onChange={(e) => setComment(e.target.value)} />
-       
-          <button type="submit" disabled={errorMessage}>Post Comment</button>   
-         
-          </form>
-       
-        </div>
+        <button type="submit" disabled={errorMessage}>Post Comment</button>  
+      
+      </form>
+      
+      )}
+    
+      <div className="comment">
+      {commentSaved.map((item) => (
+        <div key={item._id} className="card-comment" >
+          <div className="container-user">
+            <img className ="avatar "src="/images/user_avatar.png"  width="50px"/>
+            <p className="name"> {item.user}</p>
+            <p className="date">{new Date(item.createdAt).toISOString().slice(0,10)}</p>
+          </div> 
+          <p className="user-comment"> {item.comment}</p>
+        
+        </div>))}
+      </div>
+    
+      
+    
+    </div>
 
 
   );
