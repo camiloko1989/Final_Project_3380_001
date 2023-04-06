@@ -28,10 +28,7 @@ const getFacilityId = asyncHandler(async (req, res) => {
 // @access  Public
 const setFacility = asyncHandler(async (req, res) => {
   if (!req.body.facility) {
-    // need to add back other fields after testing
-    // res.status(400).json({ message: "Please add a text field" }); // bad req
     res.status(400);
-    // express error handler
     throw new Error("Please add a facility field");
   }
 

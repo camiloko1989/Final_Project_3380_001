@@ -32,6 +32,7 @@ const setComment = asyncHandler(async (req, res) => {
     shelterId=req.body.shelterId,
     user=req.body.user,
     comment=req.body.comment
+  
     const newComment = await Comment.create({
     shelterId,user,comment
       
