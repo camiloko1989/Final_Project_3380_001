@@ -1,20 +1,15 @@
-
 import React, { useState, useEffect } from "react";
-import  '../Comments.css';
+import '../Comments.css';
 import axios from 'axios';
-//import Modal from "react-modal";
 
 
 
-function Comments(props){
-
-  const id=props.id;
+function Comments(props) {
+  const id = props.id;
   const [user, setUser] = useState("");
   const [comment, setComment] = useState("");
   const [commentSaved, setCommmentSaved] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  
-
   const errorMessage=handleInput(user, comment)
   function handleInput(user, comment){
  
@@ -27,11 +22,7 @@ function Comments(props){
     }
     if (user!="" && !comment){
     return " Please enter the following information: comment";
-    }
-
-    
-    
-   
+    }  
   }
   
   const  handleSubmit=  async (event)=>{
@@ -63,17 +54,14 @@ function Comments(props){
       .then((data)=>{
         setCommmentSaved(data) 
       })
-        
-      .catch((error) => console.error(error))   
+
+      .catch((error) => console.error(error));
   }
 
-  useEffect(()=>{
-    
+  useEffect(() => {
     getData();
-  
   }, []);
 
-  //https://mdbootstrap.com/docs/standard/extended/comments/
   return(
   
     <div className="container-comments"> 
@@ -87,7 +75,7 @@ function Comments(props){
         <br/>
         <br/>
         <textarea id="comment"  placeholder="Message" value={comment} onChange={(e) => setComment(e.target.value)} />
-        
+       
         <button type="submit" disabled={errorMessage}>Post Comment</button>  
       
       </form>
@@ -105,16 +93,10 @@ function Comments(props){
           <p className="user-comment"> {item.comment}</p>
         
         </div>))}
-      </div>
-    
-      
-    
+      </div> 
     </div>
 
 
-  );
+);
 } 
-      
-    
-
 export default Comments;
