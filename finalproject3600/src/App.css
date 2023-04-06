@@ -53,6 +53,7 @@ nav ul:first-child {
   text-shadow: 3px 2px 4px rgba(1, 1, 1, 0.5);
   font-size: 3rem;
   padding: 40px 20px;
+  margin-bottom: 5px;
   text-align: center;
   color: white;
 }
@@ -175,4 +176,14 @@ nav ul:first-child {
 /* Shelter Form */
 .form-group {
   margin-top: 1em;
+}
+
+/*About*/
+.about-container{
+  text-align: center;
+}
+
+/*Navbar*/
+.navbar-container{
+  padding-top: 25px;
 }

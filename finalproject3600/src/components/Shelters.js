@@ -33,7 +33,7 @@ function Shelters() {
     <div className="shelter-card">
       <NavLink to="/shelterform" className="link-info">
         <button type="button" className="btn btn-primary">
-          Add Shetler
+          Add Shelter
         </button>
       </NavLink>
       <ShelterFilter setFilter={setFilter} />
