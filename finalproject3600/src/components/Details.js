@@ -21,7 +21,7 @@ function Details() {
   return (
     //returns JSX with info from the Shelter that matches above
     <div className="container-details">
-      {shelter && (
+      {
         <div className="shelter">
           <h2 className="header-shelter">{shelter.facility}</h2>
           <div className="infoAndMap">
@@ -112,7 +112,7 @@ function Details() {
               </div>
           </div>
         </div>
-      )}
+      }
 
       <div>
         <Comments id={id} />

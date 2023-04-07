@@ -87,6 +87,7 @@ nav ul:first-child {
 
 .card-title{
   font-size: 1.2rem;
+  display: inline;
 }
 
 .card-text{
@@ -98,8 +99,14 @@ nav ul:first-child {
 }
 
 .shelter-name-logo{
-  display: flex;
+  width: 15%;
+  float: left;
+  margin-top: 5px;
+}
+
+.shelter-name-title {
   font-size: 1.3rem;
+  margin-top: 5px;
 }
 
 .title{

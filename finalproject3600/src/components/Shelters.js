@@ -41,22 +41,20 @@ function Shelters() {
             style={{ width: "25rem" }}
           >
             <div className="card border border-5 rounded-start">
-              <div
-                className="card-header card-title"
-                style={{ fontWeight: "bold" }}
-              >
-                Area: {item.geo_local_area}
-              </div>
-              <div className="card-body">
-                <h5 className="shelter-name-logo">
-                  <div className="logo">
+              <div className="card-header card-title"  style={{ fontWeight: "bold" }}>  
+                <div className="shelter-name-logo">
                     <img
                       src="/images/home-heart.png"
                       alt="Logo"
                       width={25}
                       height={25}
                     />
-                  </div>
+                  </div>    
+                  <p className="shelter-name-title">Area: {item.geo_local_area}</p>          
+                
+              </div>
+              <div className="card-body">
+                <h5 className="card-text">                 
                   {item.facility}
                 </h5>
                 <p className="card-text">Phone: {item.phone}</p>
