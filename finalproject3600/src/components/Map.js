@@ -48,7 +48,7 @@ function Map(props) {
   }, [lat, lng]);
 
   return (
-    <div className="container-maps border border-5">
+    <div>
       {shelterMap && lat && lng && (
         <div style={{ height: "400px" }} id="mapid" />
       )}

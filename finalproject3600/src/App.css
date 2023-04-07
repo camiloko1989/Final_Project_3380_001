@@ -108,26 +108,7 @@ nav ul:first-child {
 }
 
 /*Details of a card*/
-.main-information{
-  width: 100%;
-  margin: auto;
-  padding: 20px;
-}
 
-.shelter-info{
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex;
-}
-
-.logo {
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-.content-shelter {
-  vertical-align: middle;
-}
 
 /* Filter's CSS*/
 
