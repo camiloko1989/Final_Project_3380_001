@@ -122,3 +122,30 @@
     background-color: #ec9d0a;
     font-weight: 600;
   }
+
+  .modal-content{
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position:fixed;
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  /*height: 30vh;
+  width: 100vw;*/
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  }
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .message-post{
+    
+    text-align: center;
+    margin-top: 40px;
+    color: rgb(55, 106, 163);
+    font-weight: bold;
+    font-size: 21px;
+  }
+ 

@@ -21,29 +21,30 @@ const getComments = asyncHandler(async (req, res) => {
 
 const setComment = asyncHandler(async (req, res) => {
 
-    if (!req.body.comment) {
-    // need to add back other fields after testing
-    // res.status(400).json({ message: "Please add a text field" }); // bad req
+  if (!req.body.user) {
     res.status(400);
-    // express error handler
     throw new Error("Please enter your name");
   }
-    
-    shelterId=req.body.shelterId,
-    user=req.body.user,
-    comment=req.body.comment
-  
-    const newComment = await Comment.create({
-    shelterId,user,comment
-      
-    });
 
-    console.log(newComment);
-    newComment
-    .save()
-    .then(() => res.status(201).json('Activity added!'))
-    .catch((err) => res.status(400).json('Error: ' + err));
-  
+  if (!req.body.comment) {
+    res.status(400);
+    throw new Error("Please enter your comment");
+  }    
+  shelterId=req.body.shelterId,
+  user=req.body.user,
+  comment=req.body.comment
+
+  const newComment = await Comment.create({
+  shelterId,user,comment
+    
+  });
+
+  console.log(newComment);
+  newComment
+  .save()
+  .then(() => res.status(201).json('Activity added!'))
+  .catch((err) => res.status(400).json('Error: ' + err));
+
 });
 
 
