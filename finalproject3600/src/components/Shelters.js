@@ -27,7 +27,7 @@ function Shelters() {
 
   //it return each card
   return (
-    <div className="shelter-card">
+    <div className="shelter-cards">
         
       <Header />
       <NavLink to="/shelterform" className="link-info">
@@ -38,12 +38,8 @@ function Shelters() {
       <ShelterFilter setFilter={setFilter} />
       <div className="container-shelters">
         {filteredData.map((item) => (
-          <div
-            className="shelter-card"
-            key={item._id}
-            style={{ width: "25rem" }}
-          >
-            <div className="card border border-5 rounded-start">
+          
+            <div className="shelter-card card border border-5 rounded-start">
               <div className="card-header card-title"  style={{ fontWeight: "bold" }}>  
                 <div className="shelter-name-logo">
                     <img
@@ -70,7 +66,7 @@ function Shelters() {
                 </NavLink>
               </div>
             </div>
-          </div>
+          
         ))}
       </div>
       <hr />
