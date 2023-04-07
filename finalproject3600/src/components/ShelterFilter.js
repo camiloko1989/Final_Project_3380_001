@@ -22,7 +22,7 @@ function ShelterFilter({ setFilter }) {
   return (
     <div className="shleter-filter">
       <input
-        className="form-control"
+        className="form-control" id="search"
         type="text"
         placeholder="Looking for something in particular?"
         onChange={handleInputChange}
@@ -31,10 +31,10 @@ function ShelterFilter({ setFilter }) {
           if (e.key === "Enter") {handleFilter()}
         }}
       />
-      <button className="btn btn-light" onClick={handleFilter}>
+      <button id="btn"className="btn btn-light" onClick={handleFilter}>
         Search
       </button>
-      <button className="btn btn-light" onClick={resetFilter}>
+      <button id="btn-reset"className="btn btn-light" onClick={resetFilter}>
         Reset
       </button>
     </div>

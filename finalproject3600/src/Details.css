@@ -7,6 +7,8 @@
     margin-bottom: 5px;
     text-align: center;
     color: white;
+    border-radius: 0.3rem;
+    margin: auto;
   }
 
  .infoAndMap{
@@ -27,15 +29,17 @@
     margin: auto;
     padding: 20px;
     display: table-cell;
+    
+    
   }
   
   .shelter-info{
     font-size: 2rem;
     font-weight: bold;
     display: flex;
+    
+    
   }
-
-
   
   .logo {
     vertical-align: middle;
@@ -44,4 +48,11 @@
   
   .content-shelter {
     vertical-align: middle;
+    
+    
+  }
+  .shelter{
+    margin: auto;
+    
+   
   }

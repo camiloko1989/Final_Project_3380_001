@@ -31,7 +31,7 @@ function Shelters() {
         
       <Header />
       <NavLink to="/shelterform" className="link-info">
-        <button type="button" className="btn btn-primary">
+        <button type="button"  id="btn" className="btn btn-primary">
           Add Shelter
         </button>
       </NavLink>
@@ -39,8 +39,8 @@ function Shelters() {
       <div className="container-shelters">
         {filteredData.map((item) => (
           
-            <div className="shelter-card card border border-5 rounded-start">
-              <div className="card-header card-title"  style={{ fontWeight: "bold" }}>  
+            <div id="shelter-card" className="shelter-card card border border-5 rounded-start">
+              <div id="card-header"className="card-header card-title"  style={{ fontWeight: "bold" }}>  
                 <div className="shelter-name-logo">
                     <img
                       src="/images/home-heart.png"
@@ -60,7 +60,7 @@ function Shelters() {
                 <p className="card-text">Meals : {item.meals}</p>
                 <p className="card-text">Pets allowed? : {item.pets}</p>
                 <NavLink to={`/Details/${item._id}`}>
-                  <button type="button" className="btn btn-primary btn-lg">
+                  <button type="button" id="btn-details"className="btn btn-primary btn-lg">
                     View Details
                   </button>
                 </NavLink>

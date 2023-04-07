@@ -34,6 +34,7 @@ body{
 nav ul li {
   font-size: 20px;
   font-weight: bold;
+  color: black;
 }
 
 nav ul:first-child {
@@ -68,10 +69,11 @@ nav ul:first-child {
   background-color: #2359a5;
   text-shadow: 3px 2px 4px rgba(1, 1, 1, 0.5);
   font-size: 3rem;
-  padding: 40px 20px;
+  padding: 20px 20px;
   margin-bottom: 5px;
   text-align: center;
   color: white;
+  border-radius: 0.2rem;
 }
 
 
@@ -101,20 +103,31 @@ nav ul:first-child {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation: fade-in 1s ease-out;
   transition: transform 0.2s ease-in-out; /* add a transition effect */
+ 
 }
+
 
 .shelter-card:hover {
   transform: scale(1.1); /* add the hover effect */
 }
-
+#card-header{
+  background-color: #a9b9cf;
+  
+}
 .card-title{
   font-size: 1.2rem;
   display: inline;
+  
 }
 
 .card-text{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  margin-top: 5px;
+  
+  
+  
 }
+
 
 .shelter{
   width: 90%;
@@ -191,4 +204,55 @@ nav ul:first-child {
 /*About*/
 .about-container{
   text-align: center;
+}
+
+.btn-submit-form{
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.shelter-card-form{
+  border: 1px solid black;
+  margin-top:2%;
+  border-radius: 0.3rem;
+}
+.form-group{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+#btn{
+  margin-top: 10px;
+  background-color: rgb(192, 136, 31);
+  color:white;
+  margin-left: 5px;
+  border-radius: 0.3rem;
+}
+#btn:hover {
+  background-color: rgb(52, 75, 148);
+}
+
+#btn-reset{
+  margin-top: 10px;
+  background-color: rgb(100, 117, 115);
+  color:white;
+  margin-left: 5px;
+  border-radius: 0.3rem;
+}
+#search{
+  margin-top: 10px;
+ 
+}
+#btn-details{
+  background-color: rgb(52, 75, 148);
+  padding:0.4em;
+  font-size: 18px;
+  border-radius: 0.3rem;
+  
+  
+}
+#btn-details:hover{
+  background-color: #be800b;
 }

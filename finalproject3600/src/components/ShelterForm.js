@@ -97,7 +97,7 @@ function ShelterForm() {
   };
 
   return (
-    <form className="shelter-card" onSubmit={handleSubmit}>
+    <form className="shelter-card-form " onSubmit={handleSubmit}>
       {errorDiv ? (
         <div class="alert alert-danger" role="alert">
           {errorMsg}
@@ -189,6 +189,7 @@ function ShelterForm() {
           value={lat}
           onChange={(e) => setLat(e.target.value)}
         />
+        <br/>
         <input
           type="number"
           step="0.1"
@@ -201,10 +202,11 @@ function ShelterForm() {
       </div>
 
       {/* Submit: Button */}
+      <div className="btn-submit-form">
       <button type="submit" className="btn btn-primary" id="submitForm">
         {submitBtn}
       </button>
-
+      </div>
       <hr />
     </form>
   );

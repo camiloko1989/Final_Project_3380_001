@@ -107,7 +107,7 @@ function Details() {
               
             </div>
             <div className="container-map border border-5">
-                <h1>Use the map to locate us!</h1>
+                <h2>Use the map to locate us!</h2>
                 <Map idmap={id} />
               </div>
           </div>
