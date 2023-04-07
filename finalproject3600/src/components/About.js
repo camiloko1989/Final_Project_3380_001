@@ -19,12 +19,13 @@ function About() {
         </NavLink>{" "}
         or editing the information of other cities in BC here.
       </p>
-      <p className="col-lg-6 mx-auto">
-        <NavLink to="/" className="link-info">
-          Click here
-        </NavLink>{" "}
-        to start browsing.
-      </p>
+      <div className="col-lg-6 mx-auto">
+        <p>Click on our logo to start browsing!</p> 
+        <NavLink to="/"> 
+        <img src="/images/Shelters_white_back.png" width={400} height={400}/>
+        </NavLink>
+      </div>
+      
     </div>
   );
 }

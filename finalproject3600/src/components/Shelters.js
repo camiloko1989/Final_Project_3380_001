@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
+import Header from "./Header";
 import ShelterFilter from "./ShelterFilter";
 import axios from "axios";
 const API_URL = "/api/facility";
@@ -27,6 +28,8 @@ function Shelters() {
   //it return each card
   return (
     <div className="shelter-card">
+        
+      <Header />
       <NavLink to="/shelterform" className="link-info">
         <button type="button" className="btn btn-primary">
           Add Shelter

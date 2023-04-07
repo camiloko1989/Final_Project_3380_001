@@ -5,19 +5,24 @@ import { Link, NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <div className="navbar-container">
+      <NavLink to="/">
+      <img src="/images/Shelters.png" width={100} height={100} className="img-navbar"/>
+      </NavLink>
+      
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <ul className="nav nav-masthead justify-content-center float-md-end">
-          <li className="nav-link fw-bold py-1 px-0 active">
+      
+        <ul className="nav nav-masthead ms-auto justify-content-center float-md-end">
+          <li className="fw-bold py-1 px-0 active">
             <NavLink to="/" className="nav-link">
               Home
             </NavLink>
           </li>
-          <li className="nav-link fw-bold py-1 px-0 active">
+          <li className="fw-bold py-1 px-0 active">
             <NavLink to="/about" className="nav-link">
               About
             </NavLink>
           </li>
-          <li className="nav-link fw-bold py-1 px-0 active">
+          <li className="fw-bold py-1 px-0 active">
             <NavLink to="/shelterform" className="nav-link">
               Add Shelter
             </NavLink>

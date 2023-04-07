@@ -79,7 +79,7 @@ function Comments(props) {
         <br/>
         <textarea id="comment"  placeholder="Leave us your message!" value={comment} onChange={(e) => setComment(e.target.value)} />
        
-        <button type="submit" disabled={errorMessage}>Post Comment</button>  
+        <button className="button-form" type="submit" disabled={errorMessage}>Post Comment</button>  
       
       </form>
       
