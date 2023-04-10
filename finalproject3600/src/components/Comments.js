@@ -37,7 +37,7 @@ function Comments(props) {
       
     }
     axios
-    .post('http://127.0.0.1:5000/api/comments', data)
+    .post('/api/comments', data)
     .then(res=>{
     setComment("")
     setUser("")
@@ -50,7 +50,7 @@ function Comments(props) {
   };
 
 
-  const url = `http://127.0.0.1:5000/api/comments/${id}`;
+  const url = `/api/comments/${id}`;
   async function getData  () {
     const data = await fetch(url)
       .then((data) => data.json())
