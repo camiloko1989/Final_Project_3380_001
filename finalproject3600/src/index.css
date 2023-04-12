@@ -4,8 +4,11 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f2f2f2;
   color: #333;
+  background-image: url(../public/images/Header_Home.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-color: #f2f2f2;
 }
 
 code {
