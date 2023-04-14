@@ -5,10 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
-  background-image: url(../public/images/Header_Home.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-color: #f2f2f2;
+  
 }
 
 code {
@@ -28,4 +25,15 @@ code {
   text-align: center; 
   text-transform: uppercase;
   padding: 20px;
+}
+
+
+@media (max-width: 767px) {
+
+  .container {
+    width: 100%;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
 }

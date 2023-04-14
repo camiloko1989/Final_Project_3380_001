@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faPersonShelter } from "@fortawesome/free-solid-svg-icons";
 
@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div className="navbar-container">
       <NavLink to="/">
-      <img src="/images/Shelters.png" width={100} height={100} className="img-navbar"/>
+      <img src="/images/Shelters.png" width={100} height={100} className="img-navbar" alt="shelters BC logo"/>
       </NavLink>
       
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

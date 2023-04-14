@@ -14,7 +14,12 @@
  .infoAndMap{
     width: 100%;
     display: table;
- }
+    background-image: url('/public/images/white-card.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
 
 
 .main-information{
@@ -54,5 +59,36 @@
   .shelter{
     margin: auto;
     
-   
+  }
+
+
+  @media (max-width: 767px) {
+
+    .infoAndMap{
+      display: block;
+    }
+
+    .container-map{
+      width: 100%;
+      margin: 0;
+      display: block;
+    }
+    
+    .shelter-info{
+      width: 100%;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+    }
+
+    .shelter{
+      width: 100%;
+      margin: 0%;
+    }
+
+    .button-form{
+      width: 50%;
+      margin: auto;
+    }
+
   }

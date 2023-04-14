@@ -18,10 +18,10 @@ function Comments(props) {
     if(!user && !comment){
       return "Please enter the following information: name and comment";
     } 
-    if (!user && comment !=""){
+    if (!user && comment !== ""){
     return " Please enter the following information: name";
     }
-    if (user !="" && !comment){
+    if (user !== "" && !comment){
     return " Please enter the following information: comment";
     }  
   }
@@ -37,7 +37,7 @@ function Comments(props) {
       
     }
     axios
-    .post('http://127.0.0.1:5000/api/comments', data)
+    .post('/api/comments', data)
     .then(res=>{
     setComment("")
     setUser("")
@@ -50,7 +50,7 @@ function Comments(props) {
   };
 
 
-  const url = `http://127.0.0.1:5000/api/comments/${id}`;
+  const url = `/api/comments/${id}`;
   async function getData  () {
     const data = await fetch(url)
       .then((data) => data.json())
@@ -78,7 +78,7 @@ function Comments(props) {
         <br/>
         <br/>
         <textarea id="comment"  placeholder="Leave us your message!" value={comment} onChange={(e) => setComment(e.target.value)} />
-       
+        <br/>
         <button className="button-form" type="submit" disabled={errorMessage}>Post Comment</button>  
       
       </form>
