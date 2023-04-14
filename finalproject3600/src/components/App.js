@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import About from "./About";
 import Details from "./Details";
 import ShelterForm from "./ShelterForm";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/details/:id" element={<Details />} />{" "}
           {/*I uses :id to differentiate each Shelter*/}
           <Route path="/shelterform" element={<ShelterForm />} />
+          <Route path="*" exact={true} element={<NotFound />}></Route>
         </Routes>
       </Router>
     </div>
